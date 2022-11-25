@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "466182356887",
+    "firebase_url": "https://babydaybook-50c0a-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "babydaybook-50c0a",
+    "storage_bucket": "babydaybook-50c0a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:466182356887:android:9646cca70d266bbeff8ed2",
+        "android_client_info": {
+          "package_name": "com.izelhatipoglu.babyapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "466182356887-v9scalkjocmlfqjgpq5ebkfi9ui7pa9t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBFx3l5skLfPUG09kkO5LOP8UE-DRGpQZM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "466182356887-v9scalkjocmlfqjgpq5ebkfi9ui7pa9t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
