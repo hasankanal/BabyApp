@@ -53,17 +53,15 @@ class HomeViewModel(application: Application) : BaseViewModel(application){
        }
     }
 
-    fun getMonth(Month: Int){
+    fun getMonth(month: Int){
         db.collection("Months").addSnapshotListener { value, error ->
             if (error !=null){
                 println("Hata var getMonths")
             }else{
                 if(value != null){
-                    for (document in value.documents){
-                       // val months = months
-                       // val advice = document.get()
-                       // monthData.value= Month(months,advice,state)
-                    }
+                    var data = value.documents[month]
+                    println(data.get("fourAdvice") as? String)
+                    println(data.get("fourState") as? String)
                 }
 
             }

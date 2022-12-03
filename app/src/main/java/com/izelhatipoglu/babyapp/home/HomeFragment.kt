@@ -23,6 +23,7 @@ import java.nio.channels.SocketChannel.open
 
 class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
 
+    private var month = 0
 
     override fun getViewModel() = HomeViewModel::class.java
 
@@ -35,6 +36,7 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel.getData()
+        viewModel.getMonth(0)
         observeData()
 
     }
@@ -43,6 +45,7 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
         viewModel.homeData.observe(viewLifecycleOwner){ homeData ->
             binding.tvInfoUp.text = homeData.doctorName
             binding.doctorNotes.text = homeData.doctorNotes
+            month = homeData.month.toString().toInt()
 
         }
     }
