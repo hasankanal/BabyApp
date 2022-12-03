@@ -32,9 +32,9 @@ class LoginViewModel(application: Application) : BaseViewModel(application) {
                     override fun onComplete(p0: Task<AuthResult>) {
                         if (p0.isSuccessful) {
                             println("Basarili sekilde giris yapıldı")
+                            println(auth.currentUser?.email)
 
                             loginData.postValue(true)
-                            //      FirebaseAuth.getInstance().signOut()
                         } else {
                             loginData.postValue(false)
                             println("Kullanici hatali girdi")
