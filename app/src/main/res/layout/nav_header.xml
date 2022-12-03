@@ -4,24 +4,34 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:layout_marginTop="16dp"
-    android:layout_marginStart="16dp"
     android:background="@color/white">
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:layout_width="60dp"
-        android:layout_height="60dp"/>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/user_name"
-        android:paddingTop="8dp"
-        android:textSize="20sp"
-        android:text="Ela Kaner"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        />
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/purple"
+            />
+
+        <TextView
+            android:background="@drawable/bg_menu"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:gravity="center"
+            android:id="@+id/user_name"
+            android:textSize="30sp"
+            android:text="Ela Kaner"
+            android:textColor="@color/light_black"
+            android:textStyle="bold"
+            />
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_home_text"
+            />
+
+
 
 
 </LinearLayout>

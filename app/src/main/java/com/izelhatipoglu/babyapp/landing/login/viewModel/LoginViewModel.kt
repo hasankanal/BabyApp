@@ -24,17 +24,19 @@ class LoginViewModel(application: Application) : BaseViewModel(application) {
 
     fun login(mail: String, password: String)  {
 
+
         if (mail.isNotEmpty() && password.isNotEmpty()) {
             auth.signInWithEmailAndPassword(mail, password)
                 .addOnCompleteListener(object : OnCompleteListener<AuthResult> {
                     //Kullanıcı başarılı giriş yaptığında
                     override fun onComplete(p0: Task<AuthResult>) {
                         if (p0.isSuccessful) {
-                           loginData.value= true
                             println("Basarili sekilde giris yapıldı")
+
+                            loginData.postValue(true)
                             //      FirebaseAuth.getInstance().signOut()
                         } else {
-
+                            loginData.postValue(false)
                             println("Kullanici hatali girdi")
                         }
                     }
@@ -47,6 +49,8 @@ class LoginViewModel(application: Application) : BaseViewModel(application) {
             println("Kullanici eksik girdi")
 
         }
+
+
     }
     
 

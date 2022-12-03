@@ -3,9 +3,11 @@ package com.izelhatipoglu.babyapp
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.navigation.findNavController
 import com.google.android.material.navigation.NavigationView
 
 class MainActivity : AppCompatActivity() {
@@ -27,7 +29,6 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         navView.setNavigationItemSelectedListener {
-            println("tiklandi")
             when(it.itemId) {
                 R.id.nav_home -> Toast.makeText(this,"Clicked Home", Toast.LENGTH_LONG).show()
                 R.id.setting -> Toast.makeText(this,"Clicked Home", Toast.LENGTH_LONG).show()
@@ -35,6 +36,16 @@ class MainActivity : AppCompatActivity() {
 
             }
             true
+        }
+
+        val navController = this.findNavController(R.id.fragmentContainerView)
+
+       navController.addOnDestinationChangedListener { _, destination, _->
+            if (destination.id == R.id.loginFragment) {
+                navView.visibility = View.GONE
+            } else {
+                navView.visibility = View.VISIBLE
+            }
         }
 
     }

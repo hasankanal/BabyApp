@@ -5,6 +5,7 @@ plugins {
     id 'kotlin-android-extensions'
     id 'kotlin-kapt'
     id 'com.google.gms.google-services'
+    id 'com.google.firebase.crashlytics'
     id 'androidx.navigation.safeargs'
 }
 
@@ -45,9 +46,7 @@ android {
 
 dependencies {
 
-    implementation 'com.google.firebase:firebase-database-ktx:20.1.0'
-    implementation 'com.google.firebase:firebase-storage-ktx:20.1.0'
-    implementation 'com.google.firebase:firebase-firestore-ktx:24.4.1'
+
     def nav_version = "2.5.3"
     def recycler_view_version = "1.2.0-beta02"
     def legacy_support_version = "1.0.0"
@@ -75,18 +74,21 @@ dependencies {
 
     implementation "androidx.coordinatorlayout:coordinatorlayout:1.2.0"
 
-    implementation 'com.google.firebase:firebase-core:21.1.1'
-    implementation 'com.google.firebase:firebase-auth:21.1.0'
-
-    implementation platform('com.google.firebase:firebase-bom:31.0.3')
-
     implementation 'com.google.android.material:material:1.8.0-alpha02'
 
     implementation 'de.hdodenhof:circleimageview:3.1.0'
 
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
-
+    implementation 'com.google.firebase:firebase-core:21.1.1'
+    implementation 'com.google.firebase:firebase-auth:21.1.0'
+    implementation platform('com.google.firebase:firebase-bom:31.0.3')
+    implementation 'com.google.firebase:firebase-crashlytics-ktx'
+    implementation 'com.google.firebase:firebase-analytics-ktx'
+    implementation 'com.google.firebase:firebase-messaging'
+    implementation 'com.google.firebase:firebase-firestore-ktx'
+    implementation 'com.google.firebase:firebase-database-ktx:20.1.0'
+    implementation 'com.google.firebase:firebase-storage-ktx:20.1.0'
 
 
 

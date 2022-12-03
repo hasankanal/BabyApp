@@ -34,14 +34,16 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.getDataFromFirebase()
         viewModel.getData()
         observeData()
+
     }
 
     private fun observeData(){
         viewModel.homeData.observe(viewLifecycleOwner){ homeData ->
             binding.tvInfoUp.text = homeData.doctorName
+            binding.doctorNotes.text = homeData.doctorNotes
+
         }
     }
 }

@@ -87,9 +87,9 @@
                             android:src="@drawable/smal_grup" />
 
                         <TextView
+                            android:id="@+id/doctor_date"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="18 Nov." 
                             android:textSize="35sp"
                             android:layout_gravity="center"
                             android:layout_marginStart="10dp"
@@ -133,18 +133,20 @@
                         android:textColor="@color/black"/>
 
                     <TextView
+                        android:id="@+id/doctor_notes"
                         android:layout_width="330dp"
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:layout_marginTop="10dp"
                         android:minHeight="60dp"
                         android:padding="15dp"
-                        android:text="jdkdjdkdjdkjjddjjdjd" />
+                         />
 
                 </LinearLayout>
             </FrameLayout>
 
             <ImageView
+                android:id="@+id/firebase_view"
                 android:layout_width="330dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"

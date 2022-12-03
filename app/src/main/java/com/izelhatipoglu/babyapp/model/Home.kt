@@ -1,7 +1,7 @@
 package com.izelhatipoglu.babyapp.model
 
 data class Home(
-    val month: Int?,
+    val month: String?,
     val doctorAppointment: String?,
     val doctorName: String?,
     val doctorNotes: String?,

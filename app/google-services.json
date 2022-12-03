@@ -8,6 +8,35 @@
   "client": [
     {
       "client_info": {
+        "mobilesdk_app_id": "1:466182356887:android:3f0da4971139cf68ff8ed2",
+        "android_client_info": {
+          "package_name": "com.hkanal.babyapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "466182356887-v9scalkjocmlfqjgpq5ebkfi9ui7pa9t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBFx3l5skLfPUG09kkO5LOP8UE-DRGpQZM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "466182356887-v9scalkjocmlfqjgpq5ebkfi9ui7pa9t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:466182356887:android:9646cca70d266bbeff8ed2",
         "android_client_info": {
           "package_name": "com.izelhatipoglu.babyapp"
