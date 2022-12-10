@@ -63,9 +63,26 @@ class HomeViewModel(application: Application) : BaseViewModel(application) {
                 println("Hata var getMonths")
             } else {
                 if (value != null) {
-                    var data = value.documents[month]
-                    println(data.get("fourAdvice") as? String)
-                    println(data.get("fourState") as? String)
+
+                    for(document in value.documents){
+                        val dbMonth = document.get("Number") as? Int
+
+                        if(dbMonth == month){
+                            val advice = document.get("Advice") as? String
+                            val state = document.get("State") as? String
+
+                            monthData.value = Month(
+                                dbMonth,
+                                state,
+                                advice
+                            )
+                            break
+                        }
+
+                    }
+                  /*  var data = value.documents[month]
+                    println(data.get("Advice") as? String)
+                    println(data.get("State") as? String)*/
                 }
 
             }

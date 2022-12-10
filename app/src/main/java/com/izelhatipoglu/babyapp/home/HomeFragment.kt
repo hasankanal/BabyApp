@@ -10,7 +10,7 @@ import com.izelhatipoglu.babyapp.home.viewModel.HomeViewModel
 
 class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
 
-    private var month = 3
+    private var month = 0
 
     override fun getViewModel() = HomeViewModel::class.java
 
@@ -24,14 +24,20 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
 
         viewModel.getData()
         observeData()
-        viewModel.getMonth(0)
+        viewModel.getMonth(month)
     }
 
     private fun observeData(){
         viewModel.homeData.observe(viewLifecycleOwner){ homeData ->
-            binding.tvInfoUp.text = homeData.doctorName
+            binding.doctorNotes.text = homeData.doctorNotes
+            binding.doctorDate.text= homeData.doctorAppointment
             month = homeData.month ?: 0
 
+        }
+
+        viewModel.monthData.observe(viewLifecycleOwner){ monthData ->
+            binding.tvInfoUp.text = monthData.state
+            binding.tvMonthDownInfo.text = monthData.advice
         }
     }
 }
