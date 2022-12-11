@@ -34,8 +34,10 @@ class HomeViewModel(application: Application) : BaseViewModel(application) {
                             val user = auth.currentUser?.email
 
                             if (user.toString() == userName) {
-                                val month = document.get("date") as? Int
+                                val month = document.get("date") as? String
+                                println("month:::: $month")
                                 val doctorAppointment = document.get("doctorAppointment") as? String
+                                println("uappoinmemte:: $doctorAppointment")
                                 val photo = document.get("photo") as? String
                                 val doctorNotes = document.get("doctorNotes") as? String
                                 val doctorName = document.get("doctorName") as? String
@@ -57,7 +59,7 @@ class HomeViewModel(application: Application) : BaseViewModel(application) {
             }
     }
 
-    fun getMonth(month: Int) {
+    fun getMonth(month: String) {
         db.collection("Months").addSnapshotListener { value, error ->
             if (error != null) {
                 println("Hata var getMonths")
@@ -65,11 +67,16 @@ class HomeViewModel(application: Application) : BaseViewModel(application) {
                 if (value != null) {
 
                     for(document in value.documents){
-                        val dbMonth = document.get("Number") as? Int
-
+                        val dbMonth = document.get("Number") as? String
+                        println("dbMonth :: $dbMonth")
+                        println("fromfirebasemonth :: $month")
+                        println("burada")
                         if(dbMonth == month){
                             val advice = document.get("Advice") as? String
+                            println("burada2")
+                            println("uadvice:: $advice")
                             val state = document.get("State") as? String
+                            println("state:: $state")
 
                             monthData.value = Month(
                                 dbMonth,
