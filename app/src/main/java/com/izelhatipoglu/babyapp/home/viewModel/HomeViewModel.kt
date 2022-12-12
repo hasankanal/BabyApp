@@ -39,7 +39,7 @@ class HomeViewModel(application: Application) : BaseViewModel(application) {
                                 val photo = document.get("photo") as? String
                                 val doctorNotes = document.get("doctorNotes") as? String
                                 val doctorName = document.get("doctorName") as? String
-                                 println("usernameFromFirebase:: $userName")
+                                println("usernameFromFirebase:: $userName")
                                 homeData.value = Home(
                                     month,
                                     doctorAppointment,
@@ -64,10 +64,10 @@ class HomeViewModel(application: Application) : BaseViewModel(application) {
             } else {
                 if (value != null) {
 
-                    for(document in value.documents){
+                    for (document in value.documents) {
                         val dbMonth = document.get("Number") as? Int
-
-                        if(dbMonth == month){
+                        println("get month içi $dbMonth")
+                        if (dbMonth == month) {
                             val advice = document.get("Advice") as? String
                             val state = document.get("State") as? String
 
@@ -80,9 +80,9 @@ class HomeViewModel(application: Application) : BaseViewModel(application) {
                         }
 
                     }
-                  /*  var data = value.documents[month]
-                    println(data.get("Advice") as? String)
-                    println(data.get("State") as? String)*/
+                    /*  var data = value.documents[month]
+                      println(data.get("Advice") as? String)
+                      println(data.get("State") as? String)*/
                 }
 
             }

@@ -3,19 +3,32 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+<group android:checkableBehavior="single">
+
     <item
-        android:id="@+id/nav_home"
+        android:id="@+id/home"
+        android:title="Home"
+        android:icon="@drawable/vector_home"/>
+
+    <item
+        android:id="@+id/profile"
         android:title="Profile"
         android:icon="@drawable/ic_baseline_account_circle_24"
         />
     <item
-        android:id="@+id/setting"
+        android:id="@+id/galery"
         android:title="Day Book"
         android:icon="@drawable/daybook"/>
-    <item
-        android:id="@+id/out"
-        android:title="Sign Out"
-        android:icon="@drawable/ic_baseline_exit_to_app_24"/>
+
+</group>
+
+    <group>
+        <item
+            android:id="@+id/out"
+            android:title="Sign Out"
+            android:icon="@drawable/ic_baseline_exit_to_app_24"/>
+    </group>
+
 
 
 </menu>
