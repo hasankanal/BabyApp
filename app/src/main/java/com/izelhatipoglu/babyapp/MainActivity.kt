@@ -4,19 +4,16 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.ktx.Firebase
 import com.izelhatipoglu.babyapp.galery.GalleryFragment
 import com.izelhatipoglu.babyapp.home.HomeFragment
 import com.izelhatipoglu.babyapp.landing.login.LoginFragment
 import com.izelhatipoglu.babyapp.profil.ProfileFragment
-import com.izelhatipoglu.babyapp.signOut.SignOutFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -53,7 +50,10 @@ class MainActivity : AppCompatActivity() {
             when(it.itemId) {
                 R.id.galery -> replaceFragment(GalleryFragment(),it.title.toString())
                 R.id.profile -> replaceFragment(ProfileFragment(),it.title.toString())
-                R.id.out -> replaceFragment(SignOutFragment(),it.title.toString())
+                R.id.out -> {
+                    auth.signOut()
+                    replaceFragment(LoginFragment(),it.title.toString())
+                }
                 R.id.home ->replaceFragment(HomeFragment(),it.title.toString())
             }
             true
