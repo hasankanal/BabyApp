@@ -35,6 +35,7 @@ class LoginFragment : BaseFragment<LoginViewModel, FragmentLoginBinding>() {
         handleClick()
 
 
+
     }
 
     private fun initUI(){
