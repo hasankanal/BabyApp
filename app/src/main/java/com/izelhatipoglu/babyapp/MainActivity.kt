@@ -19,6 +19,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity : AppCompatActivity() {
 
     lateinit var toggle: ActionBarDrawerToggle
+
     private val auth =  FirebaseAuth.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,12 +29,7 @@ class MainActivity : AppCompatActivity() {
         val drawerLayout : DrawerLayout = findViewById(R.id.drawerLayout)
         val navView: NavigationView = findViewById(R.id.navView)
 
-        val currentUser = auth.currentUser
-        if(currentUser!= null){
-            replaceFragment(HomeFragment(),"Home Fragment")
-        }else{
-            replaceFragment(LoginFragment(),"Login Fragment")
-        }
+
 
         toggle = ActionBarDrawerToggle(this,drawerLayout,R.string.open,R.string.close)
         drawerLayout.addDrawerListener(toggle)
