@@ -1,10 +1,11 @@
 package com.izelhatipoglu.babyapp.model
 
 data class Home(
-    val month: String?,
-    val doctorAppointment: String?,
-    val doctorName: String?,
-    val doctorNotes: String?,
-    val photo: String?,
-    val userName: String?
+    val month: String? = null,
+    val doctorAppointment: String? = null,
+    val doctorName: String? = null,
+    val doctorNotes: String? = null,
+    val photo: String? = null,
+    val userName: String? = null,
+    val type: String? = null
 )

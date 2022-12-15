@@ -1,20 +1,20 @@
 package com.izelhatipoglu.babyapp.landing.login
 
 
-import android.content.Context
+
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.NavController
+import androidx.lifecycle.MutableLiveData
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.NavHostFragment
 import com.google.firebase.auth.FirebaseAuth
-import com.izelhatipoglu.babyapp.R
+import com.google.firebase.firestore.FirebaseFirestore
 import com.izelhatipoglu.babyapp.base.BaseFragment
 import com.izelhatipoglu.babyapp.databinding.FragmentLoginBinding
-import com.izelhatipoglu.babyapp.home.HomeFragment
 import com.izelhatipoglu.babyapp.landing.login.viewModel.LoginViewModel
+import com.izelhatipoglu.babyapp.model.Home
 
 
 class LoginFragment : BaseFragment<LoginViewModel, FragmentLoginBinding>() {
@@ -23,7 +23,6 @@ class LoginFragment : BaseFragment<LoginViewModel, FragmentLoginBinding>() {
 
     private val auth =  FirebaseAuth.getInstance()
 
-
     override fun getFragmentBinding(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -31,10 +30,10 @@ class LoginFragment : BaseFragment<LoginViewModel, FragmentLoginBinding>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         initUI()
         handleClick()
-
-
+        observeData()
 
     }
 
@@ -53,13 +52,24 @@ class LoginFragment : BaseFragment<LoginViewModel, FragmentLoginBinding>() {
             val password = binding.password.text.toString()
             viewModel.login(mail, password)
             println("fff")
-            viewModel.loginData.observe(viewLifecycleOwner){ loginData->
-                println("44444")
-                if (loginData){
-                    println("içerde")
-                    val action = LoginFragmentDirections.actionLoginFragmentToHomeFragment()
-                    Navigation.findNavController(requireView()).navigate(action)
-                }
+        }
+    }
+
+    private fun observeData(){
+        viewModel.loginData.observe(viewLifecycleOwner){ loginData->
+            println("44444")
+            if (loginData){
+                viewModel.getData()
+                println("içerde")
+                val action = LoginFragmentDirections.actionLoginFragmentToHomeFragment()
+                Navigation.findNavController(requireView()).navigate(action)
+            }
+        }
+
+        viewModel.homeData.observe(viewLifecycleOwner){ homeData ->
+            //giriş yaptı mı yapmadı mı
+            if(homeData.type != null){
+                println("Sorgu observe ${homeData.type}")
             }
         }
     }

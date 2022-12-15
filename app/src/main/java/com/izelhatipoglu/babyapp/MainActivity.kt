@@ -7,7 +7,9 @@ import android.view.View
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.izelhatipoglu.babyapp.galery.GalleryFragment
@@ -71,7 +73,7 @@ class MainActivity : AppCompatActivity() {
 
         val fragmentManager = supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.frameLayout,fragment)
+        fragmentTransaction.replace(R.id.fragmentContainerView,fragment)
         fragmentTransaction.commit()
         drawerLayout.closeDrawers()
         setTitle(title)

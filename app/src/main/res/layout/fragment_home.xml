@@ -90,9 +90,11 @@
                             android:id="@+id/doctor_date"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textSize="35sp"
+                            android:textSize="20sp"
                             android:layout_gravity="center"
-                            android:layout_marginStart="10dp"
+                            android:gravity="center"
+                            android:textStyle="bold"
+                            android:layout_margin="8dp"
                             android:textColor="@color/light_black"
                             />
                     </FrameLayout>
@@ -103,7 +105,7 @@
                         android:layout_margin="20dp"
                         android:textSize="20sp"
                         android:textColor="@color/light_black"
-                        android:text="Upcoming Doctor Appp"/>
+                        android:text="Upcoming Doctor App"/>
                     
                 </LinearLayout>
 

@@ -39,6 +39,7 @@ class HomeViewModel(application: Application) : BaseViewModel(application) {
                                 val photo = document.get("photo") as? String
                                 val doctorNotes = document.get("doctorNotes") as? String
                                 val doctorName = document.get("doctorName") as? String
+                                val type = document.get("type") as? String
                                  println("usernameFromFirebase:: $userName")
                                 homeData.value = Home(
                                     month,
@@ -46,7 +47,8 @@ class HomeViewModel(application: Application) : BaseViewModel(application) {
                                     doctorName,
                                     doctorNotes,
                                     photo,
-                                    userName
+                                    userName,
+                                    type,
                                 )
                                 break
                             }
