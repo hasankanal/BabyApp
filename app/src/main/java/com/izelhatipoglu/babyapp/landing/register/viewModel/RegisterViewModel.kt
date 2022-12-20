@@ -1,4 +1,7 @@
 package com.izelhatipoglu.babyapp.landing.register.viewModel
 
-class RegisterViewModel {
+import android.app.Application
+import com.izelhatipoglu.babyapp.base.BaseViewModel
+
+class RegisterViewModel(application: Application) : BaseViewModel(application) {
 }

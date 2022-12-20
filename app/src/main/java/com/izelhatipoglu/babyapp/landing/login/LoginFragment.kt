@@ -61,8 +61,8 @@ class LoginFragment : BaseFragment<LoginViewModel, FragmentLoginBinding>() {
             if (loginData){
                 viewModel.getData()
                 println("içerde")
-                val action = LoginFragmentDirections.actionLoginFragmentToHomeFragment()
-                Navigation.findNavController(requireView()).navigate(action)
+               /* val action = LoginFragmentDirections.actionLoginFragmentToHomeFragment()
+                Navigation.findNavController(requireView()).navigate(action)*/
             }
         }
 
@@ -70,6 +70,13 @@ class LoginFragment : BaseFragment<LoginViewModel, FragmentLoginBinding>() {
             //giriş yaptı mı yapmadı mı
             if(homeData.type != null){
                 println("Sorgu observe ${homeData.type}")
+                if(homeData.type == "mom"){
+                    val action = LoginFragmentDirections.actionLoginFragmentToHomeFragment()
+                    Navigation.findNavController(requireView()).navigate(action)
+                }else{
+                    val action = LoginFragmentDirections.actionLoginFragmentToDoctorHomeFragment()
+                    Navigation.findNavController(requireView()).navigate(action)
+                }
             }
         }
     }

@@ -11,15 +11,21 @@
         <entry key="..\:/Users/HP/AndroidStudioProjects/BabyApp/app/src/main/res/drawable/bg_login.xml" value="0.1" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/BabyApp/app/src/main/res/drawable/button_bg.xml" value="0.1" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/BabyApp/app/src/main/res/drawable/drawer_list.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/BabyApp/app/src/main/res/drawable/grey_button.xml" value="0.124" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/BabyApp/app/src/main/res/drawable/home_end_bg.xml" value="0.101" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/BabyApp/app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/BabyApp/app/src/main/res/drawable/vector_home.xml" value="0.1" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/BabyApp/app/src/main/res/layout/activity_base.xml" value="0.1" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/BabyApp/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/BabyApp/app/src/main/res/layout/fragment_base.xml" value="0.24923076923076923" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/BabyApp/app/src/main/res/layout/fragment_doctor_home.xml" value="0.264" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/BabyApp/app/src/main/res/layout/fragment_home.xml" value="0.2" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/BabyApp/app/src/main/res/layout/fragment_login.xml" value="0.264" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/BabyApp/app/src/main/res/layout/fragment_profile.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/BabyApp/app/src/main/res/layout/nav_header.xml" value="0.253125" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/BabyApp/app/src/main/res/layout/recyler_row.xml" value="0.264" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/BabyApp/app/src/main/res/menu/nav_menu.xml" value="0.253125" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/BabyApp/app/src/main/res/menu/nav_menu_doctor.xml" value="0.11296296296296296" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/layout/fragment_login.xml" value="0.28229166666666666" />
       </map>

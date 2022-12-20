@@ -13,10 +13,18 @@
         <action
             android:id="@+id/action_loginFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_doctorHomeFragment"
+            app:destination="@id/doctorHomeFragment" />
     </fragment>
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.izelhatipoglu.babyapp.home.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/doctorHomeFragment"
+        android:name="com.izelhatipoglu.babyapp.homeDoctor.DoctorHomeFragment"
+        android:label="fragment_doctor_home"
+        tools:layout="@layout/fragment_doctor_home" />
 </navigation>
