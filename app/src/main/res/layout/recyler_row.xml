@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:background="@color/white">
+
+    <FrameLayout
+        android:layout_margin="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:background="@drawable/bg_home_grey">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:orientation="horizontal">
+
+            <FrameLayout
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin= "20dp">
+
+                <ImageButton
+                    android:id="@+id/image_button"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:background="@drawable/home_date_bg"
+                    android:src="@drawable/smal_grup" />
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/logo_big"/>
+
+                <TextView
+                    android:id="@+id/doctor_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:layout_margin="8dp"
+                    android:textColor="@color/light_black"
+                    />
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/userName_pregnant"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:textSize="20sp"
+                android:textColor="@color/light_black"
+                />
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+
+</LinearLayout>

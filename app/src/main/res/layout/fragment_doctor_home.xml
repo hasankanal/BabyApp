@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/bg_home"
+    tools:context=".homeDoctor.DoctorHomeFragment">
+
+
+           <View
+               android:id="@+id/bg_home"
+               android:layout_width="match_parent"
+               android:layout_height="300dp"
+               android:background="@drawable/bg_home"/>
+
+           <ImageView
+               android:layout_width="50dp"
+               android:layout_height="50dp"
+               android:src="@drawable/logo_big"
+               android:layout_gravity="right"
+               android:layout_marginEnd="12dp"
+               android:layout_marginTop="12dp"/>
+
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:orientation="vertical">
+
+               <ImageView
+                   android:layout_width="150dp"
+                   android:layout_height="150dp"
+                   android:layout_gravity="center"
+                   android:layout_marginTop="75dp"
+                   android:src="@drawable/baby"
+                   android:scaleType="fitXY"
+                   />
+
+
+               <com.google.android.material.floatingactionbutton.FloatingActionButton
+                   android:id="@+id/floating"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_gravity="end"
+                   android:layout_marginBottom="10dp"
+                   android:layout_marginEnd="10dp"
+                   android:backgroundTint="@color/white"
+                   android:visibility="gone"
+                   android:src="@drawable/add"
+                   app:fabSize="auto"/>
+
+               <com.google.android.material.floatingactionbutton.FloatingActionButton
+                   android:id="@+id/floatingAdd"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_gravity="end"
+                   android:layout_marginBottom="10dp"
+                   android:layout_marginEnd="10dp"
+                   android:backgroundTint="@color/white"
+                   android:src="@drawable/add"
+                   app:fabSize="auto"/>
+
+               <com.google.android.material.floatingactionbutton.FloatingActionButton
+                   android:id="@+id/floatingOut"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_gravity="end"
+                   android:layout_marginBottom="10dp"
+                   android:layout_marginEnd="10dp"
+                   android:visibility="gone"
+                   android:backgroundTint="@color/white"
+                   android:src="@drawable/add"
+                   app:fabSize="auto"/>
+
+               <androidx.recyclerview.widget.RecyclerView
+                   android:id="@+id/recyler_view"
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   tools:listitem="@layout/recyler_row"
+                   />
+
+
+
+           </LinearLayout>
+
+       </FrameLayout>
+
