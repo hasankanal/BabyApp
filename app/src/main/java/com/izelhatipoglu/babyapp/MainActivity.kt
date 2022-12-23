@@ -25,10 +25,6 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var toggle: ActionBarDrawerToggle
 
-    lateinit var addFab: FloatingActionButton
-    lateinit var outFaB: FloatingActionButton
-    var fabvisible = false
-
     private val auth = FirebaseAuth.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,10 +34,6 @@ class MainActivity : AppCompatActivity() {
         val drawerLayout: DrawerLayout = findViewById(R.id.drawerLayout)
         val navView: NavigationView = findViewById(R.id.navView)
 
-        addFab = findViewById(R.id.floatingAdd)
-        outFaB = findViewById(R.id.floatingOut)
-
-        fabvisible = false
 
         toggle = ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close)
         drawerLayout.addDrawerListener(toggle)
@@ -71,41 +63,11 @@ class MainActivity : AppCompatActivity() {
         val navController = this.findNavController(R.id.fragmentContainerView)
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
-            if (destination.id == R.id.loginFragment) {
-                navView.visibility = View.GONE
-            } else {
+            if (destination.id == R.id.homeFragment) {
                 navView.visibility = View.VISIBLE
-            }
-        }
-
-        addFab.setOnClickListener {
-            if (!fabvisible) {
-
-                addFab.show()
-                outFaB.show()
-
-                addFab.visibility = View.VISIBLE
-                outFaB.visibility = View.VISIBLE
-                addFab.setImageDrawable(resources.getDrawable(R.drawable.vector_home))
-                fabvisible = true
-
             } else {
-                addFab.hide()
-                outFaB.hide()
-
-                addFab.visibility = View.GONE
-                outFaB.visibility = View.GONE
-                addFab.setImageDrawable(resources.getDrawable(R.drawable.vector_home))
-                fabvisible = false
+                navView.visibility = View.GONE
             }
-        }
-
-        addFab.setOnClickListener {
-            Toast.makeText(this@MainActivity, "ADD clicked..", Toast.LENGTH_LONG).show()
-        }
-
-        outFaB.setOnClickListener {
-            Toast.makeText(this@MainActivity, "out clicked..", Toast.LENGTH_LONG).show()
         }
 
     }

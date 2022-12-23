@@ -21,10 +21,56 @@
         android:id="@+id/homeFragment"
         android:name="com.izelhatipoglu.babyapp.home.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
     <fragment
         android:id="@+id/doctorHomeFragment"
         android:name="com.izelhatipoglu.babyapp.homeDoctor.DoctorHomeFragment"
         android:label="fragment_doctor_home"
-        tools:layout="@layout/fragment_doctor_home" />
+        tools:layout="@layout/fragment_doctor_home" >
+        <action
+            android:id="@+id/action_doctorHomeFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_doctorHomeFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
+        <action
+            android:id="@+id/action_doctorHomeFragment_to_pregnantFragment"
+            app:destination="@id/pregnantFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.izelhatipoglu.babyapp.landing.register.RegisterFragment"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register" >
+        <action
+            android:id="@+id/action_registerFragment_to_doctorHomeFragment"
+            app:destination="@id/doctorHomeFragment" />
+        <action
+            android:id="@+id/action_registerFragment_to_informationRegisterFragment"
+            app:destination="@id/informationRegisterFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/pregnantFragment"
+        android:name="com.izelhatipoglu.babyapp.pregnantDoctor.PregnantFragment"
+        android:label="PregnantFragment" >
+        <action
+            android:id="@+id/action_pregnantFragment_to_doctorHomeFragment"
+            app:destination="@id/doctorHomeFragment" />
+        <argument
+            android:name="momName"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/informationRegisterFragment"
+        android:name="com.izelhatipoglu.babyapp.landing.register.InformationRegisterFragment"
+        android:label="fragment_information_register"
+        tools:layout="@layout/fragment_information_register" >
+        <action
+            android:id="@+id/action_informationRegisterFragment_to_doctorHomeFragment"
+            app:destination="@id/doctorHomeFragment" />
+    </fragment>
 </navigation>

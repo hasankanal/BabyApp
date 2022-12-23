@@ -45,8 +45,7 @@
                    android:layout_marginBottom="10dp"
                    android:layout_marginEnd="10dp"
                    android:backgroundTint="@color/white"
-                   android:visibility="gone"
-                   android:src="@drawable/add"
+                   android:src="@drawable/vector_home"
                    app:fabSize="auto"/>
 
                <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -54,9 +53,10 @@
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
                    android:layout_gravity="end"
-                   android:layout_marginBottom="10dp"
+                   android:layout_marginBottom="12dp"
                    android:layout_marginEnd="10dp"
                    android:backgroundTint="@color/white"
+                   android:visibility="gone"
                    android:src="@drawable/add"
                    app:fabSize="auto"/>
 
@@ -67,9 +67,9 @@
                    android:layout_gravity="end"
                    android:layout_marginBottom="10dp"
                    android:layout_marginEnd="10dp"
-                   android:visibility="gone"
                    android:backgroundTint="@color/white"
-                   android:src="@drawable/add"
+                   android:src="@drawable/exit"
+                   android:visibility="gone"
                    app:fabSize="auto"/>
 
                <androidx.recyclerview.widget.RecyclerView
@@ -78,9 +78,6 @@
                    android:layout_height="match_parent"
                    tools:listitem="@layout/recyler_row"
                    />
-
-
-
            </LinearLayout>
 
        </FrameLayout>

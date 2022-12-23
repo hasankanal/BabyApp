@@ -16,7 +16,6 @@ class HomeViewModel(application: Application) : BaseViewModel(application) {
     val homeData = MutableLiveData<Home>()
     val monthData = MutableLiveData<Month>()
 
-
     fun getData() {
 
         db.collection("Home")

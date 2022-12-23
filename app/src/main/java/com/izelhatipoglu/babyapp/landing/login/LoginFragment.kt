@@ -1,7 +1,8 @@
 package com.izelhatipoglu.babyapp.landing.login
 
 
-
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -21,12 +22,14 @@ class LoginFragment : BaseFragment<LoginViewModel, FragmentLoginBinding>() {
 
     override fun getViewModel() = LoginViewModel::class.java
 
-    private val auth =  FirebaseAuth.getInstance()
+    private val auth = FirebaseAuth.getInstance()
+    private lateinit var sharedPreference : SharedPreferences
+    private lateinit var  editor : SharedPreferences.Editor
 
     override fun getFragmentBinding(
         inflater: LayoutInflater,
         container: ViewGroup?,
-    )= FragmentLoginBinding.inflate(inflater,container,false)
+    ) = FragmentLoginBinding.inflate(inflater, container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -37,50 +40,62 @@ class LoginFragment : BaseFragment<LoginViewModel, FragmentLoginBinding>() {
 
     }
 
-    private fun initUI(){
+    private fun initUI() {
+
+        sharedPreference = requireActivity().getSharedPreferences("com.izelhatipoglu.babyapp", Context.MODE_PRIVATE)
+        editor = sharedPreference.edit()
 
         val currentUser = auth.currentUser
-        if(currentUser!= null){
+        if (currentUser != null) {
+            val type = sharedPreference.getString("typePref", "")
+
+            if(type == "mom"){
+                val action = LoginFragmentDirections.actionLoginFragmentToHomeFragment()
+                NavHostFragment.findNavController(this).navigate(action)
+            }else if(type == "doctor"){
+                val action = LoginFragmentDirections.actionLoginFragmentToDoctorHomeFragment()
+                NavHostFragment.findNavController(this).navigate(action)
+            }else{
+                println(" DOktor veya mom yok")
+            }
+            /*
             val action = LoginFragmentDirections.actionLoginFragmentToHomeFragment()
             NavHostFragment.findNavController(this).navigate(action)
+
+             */
         }
     }
 
-    private fun handleClick(){
+    private fun handleClick() {
         binding.buttonLogin.setOnClickListener {
             val mail = binding.mail.text.toString()
             val password = binding.password.text.toString()
             viewModel.login(mail, password)
-            println("fff")
         }
     }
 
-    private fun observeData(){
-        viewModel.loginData.observe(viewLifecycleOwner){ loginData->
-            println("44444")
-            if (loginData){
+    private fun observeData() {
+        viewModel.loginData.observe(viewLifecycleOwner) { loginData ->
+            if (loginData) {
                 viewModel.getData()
-                println("içerde")
-               /* val action = LoginFragmentDirections.actionLoginFragmentToHomeFragment()
-                Navigation.findNavController(requireView()).navigate(action)*/
             }
         }
 
-        viewModel.homeData.observe(viewLifecycleOwner){ homeData ->
+        viewModel.homeData.observe(viewLifecycleOwner) { homeData ->
             //giriş yaptı mı yapmadı mı
-            if(homeData.type != null){
-                println("Sorgu observe ${homeData.type}")
-                if(homeData.type == "mom"){
+            if (homeData.type != null) {
+                editor.putString("typePref", "${homeData.type}")
+                editor.commit()
+                if (homeData.type == "mom") {
                     val action = LoginFragmentDirections.actionLoginFragmentToHomeFragment()
                     Navigation.findNavController(requireView()).navigate(action)
-                }else{
+                } else {
                     val action = LoginFragmentDirections.actionLoginFragmentToDoctorHomeFragment()
                     Navigation.findNavController(requireView()).navigate(action)
                 }
             }
         }
     }
-
 
 
 }
