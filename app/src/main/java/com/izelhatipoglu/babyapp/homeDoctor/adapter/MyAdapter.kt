@@ -1,15 +1,11 @@
 package com.izelhatipoglu.babyapp.homeDoctor.adapter
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.viewmodel.viewModelFactory
 import androidx.recyclerview.widget.RecyclerView
-import com.izelhatipoglu.babyapp.R
 import com.izelhatipoglu.babyapp.databinding.RecylerRowBinding
 import com.izelhatipoglu.babyapp.model.DoctorModel
-import com.izelhatipoglu.babyapp.pregnantDoctor.PregnantFragment
+
 
 
 class MyAdapter(list: ArrayList<DoctorModel>, val onItemClicked: IsClicked): RecyclerView.Adapter<MyAdapter.ViewHolder>() {

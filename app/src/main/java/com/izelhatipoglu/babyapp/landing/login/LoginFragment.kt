@@ -7,15 +7,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.MutableLiveData
+import android.widget.Toast
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.NavHostFragment
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.FirebaseFirestore
 import com.izelhatipoglu.babyapp.base.BaseFragment
 import com.izelhatipoglu.babyapp.databinding.FragmentLoginBinding
 import com.izelhatipoglu.babyapp.landing.login.viewModel.LoginViewModel
-import com.izelhatipoglu.babyapp.model.Home
+
 
 
 class LoginFragment : BaseFragment<LoginViewModel, FragmentLoginBinding>() {
@@ -56,13 +55,9 @@ class LoginFragment : BaseFragment<LoginViewModel, FragmentLoginBinding>() {
                 val action = LoginFragmentDirections.actionLoginFragmentToDoctorHomeFragment()
                 NavHostFragment.findNavController(this).navigate(action)
             }else{
-                println(" DOktor veya mom yok")
-            }
-            /*
-            val action = LoginFragmentDirections.actionLoginFragmentToHomeFragment()
-            NavHostFragment.findNavController(this).navigate(action)
 
-             */
+            }
+
         }
     }
 
@@ -71,6 +66,7 @@ class LoginFragment : BaseFragment<LoginViewModel, FragmentLoginBinding>() {
             val mail = binding.mail.text.toString()
             val password = binding.password.text.toString()
             viewModel.login(mail, password)
+
         }
     }
 
@@ -78,24 +74,30 @@ class LoginFragment : BaseFragment<LoginViewModel, FragmentLoginBinding>() {
         viewModel.loginData.observe(viewLifecycleOwner) { loginData ->
             if (loginData) {
                 viewModel.getData()
+            }else{
+                Toast.makeText(context,"You have entered incorrectly!",Toast.LENGTH_SHORT).show()
             }
         }
 
         viewModel.homeData.observe(viewLifecycleOwner) { homeData ->
-            //giriş yaptı mı yapmadı mı
             if (homeData.type != null) {
                 editor.putString("typePref", "${homeData.type}")
                 editor.commit()
                 if (homeData.type == "mom") {
                     val action = LoginFragmentDirections.actionLoginFragmentToHomeFragment()
                     Navigation.findNavController(requireView()).navigate(action)
-                } else {
+                } else if(homeData.type == "doctor"){
                     val action = LoginFragmentDirections.actionLoginFragmentToDoctorHomeFragment()
                     Navigation.findNavController(requireView()).navigate(action)
+
+                    editor.putString("doctorEmail",homeData.userName)
+                    editor.putString("doctorPassword",binding.password.text.toString())
+                    editor.commit()
                 }
             }
         }
     }
+
 
 
 }

@@ -22,21 +22,16 @@ class DoctorHomeViewModel(application: Application) : BaseViewModel(application)
 
             }else{
                 if (value != null){
-                 //   println("doctor data")
+                    momList.clear()
                     for (document in value.documents){
-                     //   println("doctor data for içinde")
                         val userName = auth.currentUser?.email
-                        println("current username : $userName")
                         val doctorName = document.get("doctorName") as? String
-                        println("doctorname :  $doctorName")
                         if(userName.toString() == doctorName.toString()){
                             val pregnantName =document.get("name") as? String
-                            println("name :: $pregnantName")
                             momList.add(DoctorModel(pregnantName!!))
-                            println("first mom ${doctorDataList.value?.get(0)}")
                         }
                     }
-                    println("size ${momList.size}")
+
                     doctorDataList.postValue(momList)
                 }
             }

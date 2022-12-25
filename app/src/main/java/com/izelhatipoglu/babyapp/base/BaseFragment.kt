@@ -12,7 +12,6 @@ import android.view.inputmethod.InputMethodManager
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.viewbinding.ViewBinding
-import com.izelhatipoglu.babyapp.R
 import com.izelhatipoglu.babyapp.util.DataChangeListener
 import com.izelhatipoglu.babyapp.util.GlobalData
 import java.lang.Exception

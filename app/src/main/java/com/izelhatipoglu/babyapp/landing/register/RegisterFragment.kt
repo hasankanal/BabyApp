@@ -1,14 +1,12 @@
 package com.izelhatipoglu.babyapp.landing.register
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.Navigation
 import androidx.navigation.fragment.NavHostFragment
-import com.google.firebase.auth.FirebaseAuth
-import com.izelhatipoglu.babyapp.R
 import com.izelhatipoglu.babyapp.base.BaseFragment
 import com.izelhatipoglu.babyapp.databinding.FragmentRegisterBinding
 import com.izelhatipoglu.babyapp.landing.register.viewModel.RegisterViewModel
@@ -17,6 +15,9 @@ import com.izelhatipoglu.babyapp.landing.register.viewModel.RegisterViewModel
 class RegisterFragment : BaseFragment<RegisterViewModel, FragmentRegisterBinding>() {
 
 
+    private lateinit var sharedPreference : SharedPreferences
+    private var doctorEmail = ""
+    private var doctorPassword = ""
 
     override fun getViewModel() = RegisterViewModel::class.java
 
@@ -27,6 +28,13 @@ class RegisterFragment : BaseFragment<RegisterViewModel, FragmentRegisterBinding
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        sharedPreference = requireActivity().getSharedPreferences("com.izelhatipoglu.babyapp", Context.MODE_PRIVATE)
+        doctorEmail = sharedPreference.getString("doctorEmail","").toString()
+        doctorPassword = sharedPreference.getString("doctorPassword","").toString()
+
+        println("doctorEmail :: $doctorEmail")
+        println("doctorPassword:: $doctorPassword")
 
         handleClick()
         observeData()
@@ -49,4 +57,6 @@ class RegisterFragment : BaseFragment<RegisterViewModel, FragmentRegisterBinding
 
         }
     }
+
+
 }

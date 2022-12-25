@@ -1,29 +1,18 @@
 package com.izelhatipoglu.babyapp.homeDoctor
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.navigation.NavController
-import androidx.navigation.NavHostController
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.auth.FirebaseAuth
 import com.izelhatipoglu.babyapp.R
 import com.izelhatipoglu.babyapp.base.BaseFragment
 import com.izelhatipoglu.babyapp.databinding.FragmentDoctorHomeBinding
-import com.izelhatipoglu.babyapp.databinding.FragmentHomeBinding
 import com.izelhatipoglu.babyapp.homeDoctor.adapter.MyAdapter
 import com.izelhatipoglu.babyapp.homeDoctor.viewModel.DoctorHomeViewModel
-import com.izelhatipoglu.babyapp.landing.login.LoginFragment
-import com.izelhatipoglu.babyapp.landing.login.LoginFragmentDirections
-import com.izelhatipoglu.babyapp.model.DoctorModel
-import kotlinx.android.synthetic.main.fragment_doctor_home.*
-import java.util.zip.ZipEntry
+
 
 class DoctorHomeFragment : BaseFragment<DoctorHomeViewModel, FragmentDoctorHomeBinding>() {
 

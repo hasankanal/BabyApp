@@ -22,7 +22,6 @@ class HomeViewModel(application: Application) : BaseViewModel(application) {
             .addSnapshotListener { value, error ->
 
                 if (error != null) {
-                    println("Hata var getdata")
                 } else {
 
                     if (value != null) {
@@ -35,17 +34,17 @@ class HomeViewModel(application: Application) : BaseViewModel(application) {
                             if (user.toString() == userName) {
                                 val month = document.get("date") as? String
                                 val doctorAppointment = document.get("doctorAppointment") as? String
-                                val photo = document.get("photo") as? String
                                 val doctorNotes = document.get("doctorNotes") as? String
                                 val doctorName = document.get("doctorName") as? String
                                 val type = document.get("type") as? String
+                                val downloadURL = document.get("downloadUrl") as? String
                                  println("usernameFromFirebase:: $userName")
                                 homeData.value = Home(
                                     month,
                                     doctorAppointment,
                                     doctorName,
                                     doctorNotes,
-                                    photo,
+                                    downloadURL,
                                     userName,
                                     type,
                                 )
@@ -61,7 +60,6 @@ class HomeViewModel(application: Application) : BaseViewModel(application) {
     fun getMonth(month: String) {
         db.collection("Months").addSnapshotListener { value, error ->
             if (error != null) {
-                println("Hata var getMonths")
             } else {
                 if (value != null) {
 
@@ -81,9 +79,7 @@ class HomeViewModel(application: Application) : BaseViewModel(application) {
                         }
 
                     }
-                  /*  var data = value.documents[month]
-                    println(data.get("Advice") as? String)
-                    println(data.get("State") as? String)*/
+
                 }
 
             }

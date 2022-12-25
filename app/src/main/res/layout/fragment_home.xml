@@ -1,204 +1,212 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".home.HomeFragment">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
         <FrameLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
             <View
                 android:id="@+id/bg_home"
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
-                android:background="@drawable/bg_home"/>
+                android:background="@drawable/bg_home" />
 
             <ImageView
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:src="@drawable/logo_big"
-                android:layout_gravity="right"
-                android:layout_marginEnd="12dp"
+                android:layout_gravity="end"
                 android:layout_marginTop="12dp"
-                />
+                android:layout_marginEnd="12dp"
+                android:src="@drawable/logo_big" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <ImageView
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="75dp"
-                android:src="@drawable/baby"
-                android:scaleType="fitXY"/>
-
-            <TextView
-                android:layout_width="330dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:id="@+id/tv_info_up"
-                android:layout_marginTop="10dp"
-                android:minHeight="100dp"
-                android:background="@drawable/bg_home_text"
-                android:padding="15dp"
-                 />
-
-            <FrameLayout
-                android:layout_margin="30dp"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="140dp"
-                android:background="@drawable/bg_home_grey">
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:layout_width="wrap_content"
+                <RelativeLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:layout_marginTop="70dp"
-                    android:layout_marginEnd="20dp"
-                    app:backgroundTint="@color/white"
-                    android:src="@drawable/add"
-                    app:fabSize="auto" />
+                    android:orientation="horizontal">
 
-                <LinearLayout
+                    <ImageView
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:id="@+id/iv_logo"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="100dp"
+                        android:scaleType="fitXY"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/baby" />
+
+                    <com.google.android.material.floatingactionbutton.FloatingActionButton
+                        android:id="@+id/floatingout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginEnd="20dp"
+                        android:backgroundTint="@color/white"
+                        android:src="@drawable/exit"
+                        app:fabSize="auto" />
+
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/tv_info_up"
+                    android:layout_width="330dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/bg_home_text"
+                    android:minHeight="100dp"
+                    android:padding="15dp" />
+
+                <FrameLayout
                     android:layout_width="match_parent"
                     android:layout_height="140dp"
-                    android:orientation="horizontal">
-                    
-                    <FrameLayout
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:layout_margin= "20dp">
+                    android:layout_margin="30dp"
+                    android:background="@drawable/bg_home_grey">
 
-                        <ImageView
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="140dp"
+                        android:orientation="horizontal">
+
+                        <FrameLayout
                             android:layout_width="100dp"
                             android:layout_height="100dp"
-                            android:background="@drawable/home_date_bg"
-                            android:src="@drawable/smal_grup" />
+                            android:layout_margin="20dp">
+
+                            <ImageView
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                android:background="@drawable/home_date_bg"
+                                android:src="@drawable/smal_grup" />
+
+                            <TextView
+                                android:id="@+id/doctor_date"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_margin="8dp"
+                                android:gravity="center"
+                                android:textColor="@color/light_black"
+                                android:textSize="20sp"
+                                android:textStyle="bold" />
+                        </FrameLayout>
 
                         <TextView
-                            android:id="@+id/doctor_date"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:textSize="20sp"
                             android:layout_gravity="center"
-                            android:gravity="center"
-                            android:textStyle="bold"
-                            android:layout_margin="8dp"
+                            android:layout_margin="20dp"
+                            android:text="Upcoming Doctor App"
                             android:textColor="@color/light_black"
-                            />
-                    </FrameLayout>
-                    
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="20dp"
-                        android:textSize="20sp"
-                        android:textColor="@color/light_black"
-                        android:text="Upcoming Doctor App"/>
-                    
-                </LinearLayout>
+                            android:textSize="20sp" />
 
-            </FrameLayout>
+                    </LinearLayout>
 
-            <FrameLayout
-                android:layout_width="350dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="5dp"
-                android:minHeight="70dp"
-                android:background="@drawable/bg_home_grey">
+                </FrameLayout>
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
+                <FrameLayout
+                    android:layout_width="350dp"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:layout_gravity="center"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/bg_home_grey"
+                    android:minHeight="70dp">
 
-                    <TextView
-                        android:layout_width="330dp"
+                    <LinearLayout
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/tv_doctor_note"
-                        android:gravity="center"
-                        android:layout_marginTop="10dp"
-                        android:minHeight="60dp"
-                        android:text="Doctors Notes"
-                        android:textSize="25sp"
-                        android:textColor="@color/black"/>
+                        android:orientation="vertical">
 
-                    <TextView
-                        android:id="@+id/doctor_notes"
-                        android:layout_width="330dp"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:layout_marginTop="10dp"
-                        android:minHeight="60dp"
-                        android:padding="15dp"
-                         />
+                        <TextView
+                            android:id="@+id/tv_doctor_note"
+                            android:layout_width="330dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:gravity="center"
+                            android:minHeight="60dp"
+                            android:text="Doctors Notes"
+                            android:textColor="@color/black"
+                            android:textSize="25sp" />
 
-                </LinearLayout>
-            </FrameLayout>
+                        <TextView
+                            android:id="@+id/doctor_notes"
+                            android:layout_width="330dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:gravity="center"
+                            android:minHeight="60dp"
+                            android:padding="15dp" />
 
-            <ImageView
-                android:id="@+id/firebase_view"
-                android:layout_width="330dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="15dp"
-                android:minHeight="100dp"
-                android:src="@drawable/image"/>
+                    </LinearLayout>
+                </FrameLayout>
 
-            <FrameLayout
-                android:layout_width="350dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="5dp"
-                android:minHeight="70dp"
-                android:background="@drawable/bg_home_grey">
+                <ImageView
+                    android:id="@+id/firebase_view"
+                    android:layout_width="330dp"
+                    android:layout_height="330dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:minHeight="100dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_baseline_image_24" />
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
+                <FrameLayout
+                    android:layout_width="350dp"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:background="@drawable/bg_home_text">
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/bg_home_grey"
+                    android:minHeight="70dp">
 
-                    <TextView
-                        android:layout_width="330dp"
+                    <LinearLayout
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:layout_marginTop="15dp"
-                        android:minHeight="60dp"
-                        android:text="Things to watch out for this month"
-                        android:textSize="25sp"
-                        android:textColor="@color/black"/>
+                        android:background="@drawable/bg_home_text"
+                        android:orientation="vertical">
 
-                    <TextView
-                        android:layout_width="330dp"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/tv_month_down_info"
-                        android:gravity="center"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginEnd="20dp"
-                        android:minHeight="60dp"
-                        android:padding="15dp"
-                        android:text="jdkdjdkdjdkjjddjjdjd" />
+                        <TextView
+                            android:layout_width="330dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:gravity="center"
+                            android:minHeight="60dp"
+                            android:text="Things to watch out for this month"
+                            android:textColor="@color/black"
+                            android:textSize="25sp" />
 
-                </LinearLayout>
-            </FrameLayout>
-        </LinearLayout>
+                        <TextView
+                            android:id="@+id/tv_month_down_info"
+                            android:layout_width="330dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="20dp"
+                            android:gravity="center"
+                            android:minHeight="60dp"
+                            android:padding="15dp"
+                            tools:text="jdkdjdkdjdkjjddjjdjd" />
+
+                    </LinearLayout>
+                </FrameLayout>
+            </LinearLayout>
         </FrameLayout>
     </androidx.core.widget.NestedScrollView>
 
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
 
 
