@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/cl_login"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/bg_gradiant"
     tools:context=".landing.login.LoginFragment">
@@ -18,6 +19,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         />
+
+
     <TextView
         android:id="@+id/sign"
         android:layout_width="match_parent"
@@ -102,9 +105,18 @@
         android:textAllCaps="false"
         android:text="Login"
         android:textColor="@color/light_black"
-
         app:layout_constraintTop_toBottomOf="@id/password_layout">
 
     </androidx.appcompat.widget.AppCompatButton>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

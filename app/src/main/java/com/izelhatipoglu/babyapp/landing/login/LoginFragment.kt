@@ -4,9 +4,11 @@ package com.izelhatipoglu.babyapp.landing.login
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.NavHostFragment
@@ -24,6 +26,9 @@ class LoginFragment : BaseFragment<LoginViewModel, FragmentLoginBinding>() {
     private val auth = FirebaseAuth.getInstance()
     private lateinit var sharedPreference : SharedPreferences
     private lateinit var  editor : SharedPreferences.Editor
+
+
+
 
     override fun getFragmentBinding(
         inflater: LayoutInflater,
@@ -67,6 +72,7 @@ class LoginFragment : BaseFragment<LoginViewModel, FragmentLoginBinding>() {
             val password = binding.password.text.toString()
             viewModel.login(mail, password)
 
+
         }
     }
 
@@ -95,6 +101,17 @@ class LoginFragment : BaseFragment<LoginViewModel, FragmentLoginBinding>() {
                     editor.commit()
                 }
             }
+        }
+
+        viewModel.isLoading.observe(viewLifecycleOwner){ isLoading ->
+            if (isLoading){
+                binding.clLogin.isEnabled = false
+                binding.progressBar.visibility = View.VISIBLE
+            }else{
+                binding.clLogin.isEnabled = true
+                binding.progressBar.visibility = View.GONE
+            }
+
         }
     }
 

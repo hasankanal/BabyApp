@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.navigation.fragment.NavHostFragment
 import com.izelhatipoglu.babyapp.base.BaseFragment
 import com.izelhatipoglu.babyapp.databinding.FragmentRegisterBinding
@@ -55,6 +56,23 @@ class RegisterFragment : BaseFragment<RegisterViewModel, FragmentRegisterBinding
                 NavHostFragment.findNavController(this).navigate(action)
             }
 
+        }
+        viewModel.isLoading.observe(viewLifecycleOwner){ isLoading ->
+            if (isLoading){
+                binding.clLogin.isEnabled = false
+                binding.progressBar.visibility = View.VISIBLE
+            }else{
+                binding.clLogin.isEnabled = true
+                binding.progressBar.visibility = View.GONE
+            }
+
+        }
+        viewModel.loginData.observe(viewLifecycleOwner) { loginData ->
+            if (loginData) {
+                Toast.makeText(context,"Registered in the system", Toast.LENGTH_SHORT).show()
+            }else{
+                Toast.makeText(context,"Failed to register in the system!", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 

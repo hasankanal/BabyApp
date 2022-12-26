@@ -17,15 +17,16 @@ class LoginViewModel(application: Application) : BaseViewModel(application) {
 
     val loginData = MutableLiveData<Boolean>()
     val homeData = MutableLiveData<Home>()
+    val isLoading = MutableLiveData<Boolean>()
 
 
     fun login(mail: String, password: String) {
-
-
         if (mail.isNotEmpty() && password.isNotEmpty()) {
+            isLoading.postValue(true)
             auth.signInWithEmailAndPassword(mail, password)
                 .addOnCompleteListener(object : OnCompleteListener<AuthResult> {
                     override fun onComplete(p0: Task<AuthResult>) {
+                        isLoading.postValue(false)
                         if (p0.isSuccessful) {
                             println(auth.currentUser?.email)
                             loginData.postValue(true)
@@ -36,12 +37,9 @@ class LoginViewModel(application: Application) : BaseViewModel(application) {
                 }
                 )
                 .addOnFailureListener {
-
+                    isLoading.postValue(false)
                     println("hata $it")
                 }
-        } else {
-
-
         }
 
     }

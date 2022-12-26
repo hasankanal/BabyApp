@@ -14,15 +14,21 @@ class RegisterViewModel(application: Application) : BaseViewModel(application) {
     var isRegister = MutableLiveData<Boolean>()
     private var auth = FirebaseAuth.getInstance()
 
+    val isLoading = MutableLiveData<Boolean>()
+    val loginData = MutableLiveData<Boolean>()
+
     fun register(mail: String, password: String) {
 
         if (mail.isNotEmpty() && password.isNotEmpty()) {
-            println(" Register $mail $password")
+            isLoading.postValue(true)
             auth.createUserWithEmailAndPassword(mail,password).addOnCompleteListener {
                 if(it.isSuccessful){
+                    isLoading.postValue(true)
                     isRegister.postValue(true)
+                    loginData.postValue(true)
                 }else{
-                    println("Kullanıcı kayıt başarısız")
+                    isLoading.postValue(false)
+                    loginData.postValue(false)
                     println(it.exception?.localizedMessage)
                 }
             }
